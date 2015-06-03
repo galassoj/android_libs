@@ -341,11 +341,11 @@
 		}
 		i__2 = *k;
 		for (l = 1; l <= i__2; ++l) {
-		    if (b[j + l * b_dim1] != 0.f) {
-			temp = *alpha * b[j + l * b_dim1];
+		    if (b[l + j * b_dim1] != 0.f) {
+			temp = *alpha * b[l + j * b_dim1];
 			i__3 = *m;
 			for (i__ = 1; i__ <= i__3; ++i__) {
-			    c__[i__ + j * c_dim1] += temp * a[i__ + l * 
+		      	    c__[j + i__ * c_dim1] += temp * a[l + i__ *
 				    a_dim1];
 /* L150: */
 			}
