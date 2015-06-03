@@ -238,7 +238,7 @@
 	    for (j = 1; j <= i__1; ++j) {
 		i__2 = *m;
 		for (i__ = 1; i__ <= i__2; ++i__) {
-		    c__[i__ + j * c_dim1] = 0.f;
+		    c__[j + i__ * c_dim1] = 0.f;
 /* L10: */
 		}
 /* L20: */
@@ -248,7 +248,7 @@
 	    for (j = 1; j <= i__1; ++j) {
 		i__2 = *m;
 		for (i__ = 1; i__ <= i__2; ++i__) {
-		    c__[i__ + j * c_dim1] = *beta * c__[i__ + j * c_dim1];
+		    c__[j + i__ * c_dim1] = *beta * c__[j + i__ * c_dim1];
 /* L30: */
 		}
 /* L40: */
@@ -269,23 +269,23 @@
 		if (*beta == 0.f) {
 		    i__2 = *m;
 		    for (i__ = 1; i__ <= i__2; ++i__) {
-			c__[i__ + j * c_dim1] = 0.f;
+			c__[j + i__ * c_dim1] = 0.f;
 /* L50: */
 		    }
 		} else if (*beta != 1.f) {
 		    i__2 = *m;
 		    for (i__ = 1; i__ <= i__2; ++i__) {
-			c__[i__ + j * c_dim1] = *beta * c__[i__ + j * c_dim1];
+			c__[j + i__ * c_dim1] = *beta * c__[j + i__ * c_dim1];
 /* L60: */
 		    }
 		}
 		i__2 = *k;
 		for (l = 1; l <= i__2; ++l) {
-		    if (b[l + j * b_dim1] != 0.f) {
-			temp = *alpha * b[l + j * b_dim1];
+		    if (b[j + l * b_dim1] != 0.f) {
+			temp = *alpha * b[j + l * b_dim1];
 			i__3 = *m;
 			for (i__ = 1; i__ <= i__3; ++i__) {
-			    c__[i__ + j * c_dim1] += temp * a[i__ + l * 
+			    c__[j + i__ * c_dim1] += temp * a[l + i__ * 
 				    a_dim1];
 /* L70: */
 			}
@@ -305,14 +305,14 @@
 		    temp = 0.f;
 		    i__3 = *k;
 		    for (l = 1; l <= i__3; ++l) {
-			temp += a[l + i__ * a_dim1] * b[l + j * b_dim1];
+			temp += a[i__ + l * a_dim1] * b[j + l * b_dim1];
 /* L100: */
 		    }
 		    if (*beta == 0.f) {
-			c__[i__ + j * c_dim1] = *alpha * temp;
+			c__[j + i__ * c_dim1] = *alpha * temp;
 		    } else {
-			c__[i__ + j * c_dim1] = *alpha * temp + *beta * c__[
-				i__ + j * c_dim1];
+			c__[j + i__ * c_dim1] = *alpha * temp + *beta * c__[
+				j + i__ * c_dim1];
 		    }
 /* L110: */
 		}
@@ -329,13 +329,13 @@
 		if (*beta == 0.f) {
 		    i__2 = *m;
 		    for (i__ = 1; i__ <= i__2; ++i__) {
-			c__[i__ + j * c_dim1] = 0.f;
+			c__[j + i__ * c_dim1] = 0.f;
 /* L130: */
 		    }
 		} else if (*beta != 1.f) {
 		    i__2 = *m;
 		    for (i__ = 1; i__ <= i__2; ++i__) {
-			c__[i__ + j * c_dim1] = *beta * c__[i__ + j * c_dim1];
+			c__[j + i__ * c_dim1] = *beta * c__[j + i__ * c_dim1];
 /* L140: */
 		    }
 		}
@@ -365,14 +365,14 @@
 		    temp = 0.f;
 		    i__3 = *k;
 		    for (l = 1; l <= i__3; ++l) {
-			temp += a[l + i__ * a_dim1] * b[j + l * b_dim1];
+			temp += a[i__ + l * a_dim1] * b[l + j * b_dim1];
 /* L180: */
 		    }
 		    if (*beta == 0.f) {
-			c__[i__ + j * c_dim1] = *alpha * temp;
+			c__[j + i__ * c_dim1] = *alpha * temp;
 		    } else {
-			c__[i__ + j * c_dim1] = *alpha * temp + *beta * c__[
-				i__ + j * c_dim1];
+			c__[j + i__ * c_dim1] = *alpha * temp + *beta * c__[
+				j + i__ * c_dim1];
 		    }
 /* L190: */
 		}
